@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+/// `UIViewController` subclass which displays a map.
+final class MapViewController: UIViewController {
 
+    @IBOutlet private weak var countryDisplayMapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
