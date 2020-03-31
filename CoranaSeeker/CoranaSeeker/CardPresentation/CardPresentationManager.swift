@@ -8,9 +8,10 @@
 
 import UIKit
 
-class CardPresentationManager: NSObject {
+final class CardPresentationManager: NSObject {
     
-    var presentationDirection: PresentationDirection = .center
+    /// The presentation direction.
+    var presentationDirection: CardPresentationController.PresentationDirection = .center
 
 }
 

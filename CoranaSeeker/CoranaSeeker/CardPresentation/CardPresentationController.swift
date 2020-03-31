@@ -11,6 +11,14 @@ import UIKit
 /// `UIPresentationController` subclass which  manages the transition animations and the presentation of view controllers onscreen
 final class CardPresentationController: UIPresentationController {
     
+    /// The direction in which a controller can be presented in.
+    enum PresentationDirection {
+        /// Displays the presented controller in the center of it's parent.
+        case center
+        /// Displays the presented controller in the bottom of it's parent.
+        case bottom
+    }
+
     private var dimmingView: UIView!
     
     private var presentationDirection: PresentationDirection

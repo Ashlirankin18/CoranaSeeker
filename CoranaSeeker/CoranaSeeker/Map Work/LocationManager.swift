@@ -9,10 +9,12 @@
 import Foundation
 import CoreLocation
 
+/// Manages the location logic.
 final class LocationManager: NSObject {
     
     private lazy var locationManager = CLLocationManager()
     
+    /// The user's location.
     var userLocation: CLLocation? {
         return locationManager.location
     }
@@ -25,6 +27,8 @@ final class LocationManager: NSObject {
     }
 }
 extension LocationManager: CLLocationManagerDelegate {
+    
+    // MARK: - CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         

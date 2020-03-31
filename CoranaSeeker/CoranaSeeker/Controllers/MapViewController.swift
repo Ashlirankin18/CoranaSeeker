@@ -153,6 +153,9 @@ final class MapViewController: UIViewController {
 }
 
 extension MapViewController: CountryListViewControllerDelegate {
+  
+    // MARK : - CountryListViewControllerDelegate
+    
     func didSelectCountry(countryListViewController: CountryListViewController, country: Country) {
         getLocation(countryName: country.name)
         self.country = country

@@ -8,26 +8,33 @@
 
 import UIKit
 
+/// `Confrom to this protocolto be notified about when a user changes the country.
 protocol CountryListViewControllerDelegate: AnyObject {
+    
+    /// This is called when a country is selected.
+    /// - Parameters:
+    ///   - countryListViewController: The countryListViewController.
+    ///   - country: The selected country.
     func didSelectCountry(countryListViewController: CountryListViewController, country: Country)
 }
 
-class CountryListViewController: UIViewController {
+/// `UIViewController` subclass which displays a list of all the countroes of the world.
+final class CountryListViewController: UIViewController {
     
     @IBOutlet weak var countryTableView: UITableView!
     
     private let countries: [Country]
     
+    /// The countryListViewControllerdelegate
     weak var delegate: CountryListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countryTableView.dataSource = self
-        countryTableView.delegate = self
-        countryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "CountryCell")
-        countryTableView.reloadData()
+        configureTableView()
     }
     
+    /// Creates a new instance of  `CountryListViewController`.
+    /// - Parameter countries: The countries of the world.
     init(countries: [Country]){
         self.countries = countries
         super.init(nibName: "CountryListViewController", bundle: nil)
@@ -37,8 +44,18 @@ class CountryListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func configureTableView() {
+        countryTableView.dataSource = self
+        countryTableView.delegate = self
+        countryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "CountryCell")
+        countryTableView.reloadData()
+    }
+    
 }
+
 extension CountryListViewController: UITableViewDataSource {
+    
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
@@ -53,6 +70,9 @@ extension CountryListViewController: UITableViewDataSource {
 }
 
 extension CountryListViewController: UITableViewDelegate {
+    
+    // MARK: - UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let country = countries[indexPath.row]
         delegate?.didSelectCountry(countryListViewController: self, country: country)
