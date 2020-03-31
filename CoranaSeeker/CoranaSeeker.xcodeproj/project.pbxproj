@@ -20,6 +20,14 @@
 		2ECBA9092430F87F003543CD /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA9082430F87F003543CD /* NetworkHelper.swift */; };
 		2ECBA90B2430F89E003543CD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA90A2430F89E003543CD /* AppError.swift */; };
 		2ECBA90D2430FA3D003543CD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA90C2430FA3D003543CD /* DataManager.swift */; };
+		2ECBA911243106C3003543CD /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA910243106C3003543CD /* CardPresentationController.swift */; };
+		2ECBA915243106CD003543CD /* PresentationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA914243106CD003543CD /* PresentationDirection.swift */; };
+		2ECBA917243106CF003543CD /* CardPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA916243106CF003543CD /* CardPresentationManager.swift */; };
+		2ECBA91B2431075A003543CD /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA9192431075A003543CD /* CountryListViewController.swift */; };
+		2ECBA91C2431075A003543CD /* CountryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA91A2431075A003543CD /* CountryListViewController.xib */; };
+		2ECBA91E2431117B003543CD /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA91D2431117B003543CD /* MapAnnotationView.swift */; };
+		2ECBA92124325CDD003543CD /* CaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA91F24325CDD003543CD /* CaseDetailViewController.swift */; };
+		2ECBA92224325CDD003543CD /* CaseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +58,14 @@
 		2ECBA9082430F87F003543CD /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		2ECBA90A2430F89E003543CD /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		2ECBA90C2430FA3D003543CD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2ECBA910243106C3003543CD /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
+		2ECBA914243106CD003543CD /* PresentationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirection.swift; sourceTree = "<group>"; };
+		2ECBA916243106CF003543CD /* CardPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationManager.swift; sourceTree = "<group>"; };
+		2ECBA9192431075A003543CD /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
+		2ECBA91A2431075A003543CD /* CountryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryListViewController.xib; sourceTree = "<group>"; };
+		2ECBA91D2431117B003543CD /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		2ECBA91F24325CDD003543CD /* CaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailViewController.swift; sourceTree = "<group>"; };
+		2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaseDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +107,7 @@
 		2ECBA8D62430E5AD003543CD /* CoranaSeeker */ = {
 			isa = PBXGroup;
 			children = (
+				2ECBA918243106DD003543CD /* CardPresentation */,
 				2ECBA9072430F86D003543CD /* Networking */,
 				2ECBA9042430F626003543CD /* Map Work */,
 				2ECBA9012430F5BA003543CD /* Extensions */,
@@ -116,6 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				2ECBA8F92430EC77003543CD /* MapViewController.swift */,
+				2ECBA9192431075A003543CD /* CountryListViewController.swift */,
+				2ECBA91A2431075A003543CD /* CountryListViewController.xib */,
+				2ECBA91F24325CDD003543CD /* CaseDetailViewController.swift */,
+				2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				2ECBA8DD2430E5AD003543CD /* Main.storyboard */,
+				2ECBA91D2431117B003543CD /* MapAnnotationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +193,16 @@
 				2ECBA90C2430FA3D003543CD /* DataManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		2ECBA918243106DD003543CD /* CardPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				2ECBA910243106C3003543CD /* CardPresentationController.swift */,
+				2ECBA914243106CD003543CD /* PresentationDirection.swift */,
+				2ECBA916243106CF003543CD /* CardPresentationManager.swift */,
+			);
+			path = CardPresentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ECBA8E42430E5B1003543CD /* LaunchScreen.storyboard in Resources */,
+				2ECBA91C2431075A003543CD /* CountryListViewController.xib in Resources */,
+				2ECBA92224325CDD003543CD /* CaseDetailViewController.xib in Resources */,
 				2ECBA8E12430E5B1003543CD /* Assets.xcassets in Resources */,
 				2ECBA8DF2430E5AD003543CD /* Main.storyboard in Resources */,
 			);
@@ -276,13 +310,19 @@
 			files = (
 				2ECBA9092430F87F003543CD /* NetworkHelper.swift in Sources */,
 				2ECBA9002430ECDD003543CD /* CountryLocation.swift in Sources */,
+				2ECBA911243106C3003543CD /* CardPresentationController.swift in Sources */,
+				2ECBA915243106CD003543CD /* PresentationDirection.swift in Sources */,
 				2ECBA9032430F5DF003543CD /* LocationManager+Coordinate.swift in Sources */,
 				2ECBA9062430F63E003543CD /* LocationManager.swift in Sources */,
+				2ECBA91E2431117B003543CD /* MapAnnotationView.swift in Sources */,
 				2ECBA90B2430F89E003543CD /* AppError.swift in Sources */,
 				2ECBA8FA2430EC77003543CD /* MapViewController.swift in Sources */,
 				2ECBA8D82430E5AD003543CD /* AppDelegate.swift in Sources */,
+				2ECBA917243106CF003543CD /* CardPresentationManager.swift in Sources */,
 				2ECBA90D2430FA3D003543CD /* DataManager.swift in Sources */,
+				2ECBA91B2431075A003543CD /* CountryListViewController.swift in Sources */,
 				2ECBA8DA2430E5AD003543CD /* SceneDelegate.swift in Sources */,
+				2ECBA92124325CDD003543CD /* CaseDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
