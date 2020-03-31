@@ -12,10 +12,6 @@ import CoreLocation
 // MARK: - Get Placemark
 extension LocationManager {
     
-    private var geoCoder: CLGeocoder {
-        return CLGeocoder()
-    }
-    
     func getPlace(for location: CLLocation,
                   completion: @escaping (CLPlacemark?) -> Void) {
         
@@ -41,7 +37,7 @@ extension LocationManager {
         func getLocation(forPlaceCalled name: String,
                          completion: @escaping(CLLocation?) -> Void) {
             
-            let geocoder = geoCoder
+            let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(name) { placemarks, error in
                 
                 guard error == nil else {

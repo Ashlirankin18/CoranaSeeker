@@ -31,4 +31,20 @@ class DataManager {
             }
         }
     }
+    
+      func retrieveCountryStatistics(urlEndPointString: String, completion: @escaping (Result<[CountryCase], AppError>) -> Void) {
+          networkHelper.performDataTask(urlEndPoint: urlEndPointString) { (result) in
+              switch result {
+              case let .failure(error):
+                  print(error)
+              case let .success(data):
+                  do {
+                      let countries = try JSONDecoder().decode([CountryCase].self, from: data)
+                      completion(.success(countries))
+                  } catch{
+                      completion(.failure(AppError.networkError(error)))
+                  }
+              }
+          }
+      }
 }
