@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `UIViewController` subclass which displays the details of a country.
 final class CaseDetailViewController: UIViewController {
   
     @IBOutlet private weak var statusLabel: UILabel!
@@ -16,6 +17,8 @@ final class CaseDetailViewController: UIViewController {
     
     private let countryCase: CountryCase
     
+    /// Creates a new instance of `CaseDetailViewController`.
+    /// - Parameter countryCase: The country case.
     init(countryCase: CountryCase) {
         self.countryCase = countryCase
         super.init(nibName: "CaseDetailViewController", bundle: nil)
