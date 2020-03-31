@@ -8,12 +8,18 @@
 
 import UIKit
 
-class CardPresentationController: UIPresentationController {
+/// `UIPresentationController` subclass which  manages the transition animations and the presentation of view controllers onscreen
+final class CardPresentationController: UIPresentationController {
     
     private var dimmingView: UIView!
     
     private var presentationDirection: PresentationDirection
     
+    /// Creates a new instance of the `CardPresentationController`
+    /// - Parameters:
+    ///   - presentedViewController: The controller being presented.
+    ///   - presentingViewController: The controller which presents another.
+    ///   - presentationDirection: The direction that a card should be presented.
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentationDirection: PresentationDirection) {
         self.presentationDirection = presentationDirection
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
@@ -85,7 +91,7 @@ class CardPresentationController: UIPresentationController {
 
 extension CardPresentationController {
     
-    func setupDimmingView() {
+   private func setupDimmingView() {
         dimmingView = UIView()
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
         dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
@@ -96,7 +102,7 @@ extension CardPresentationController {
         dimmingView.isUserInteractionEnabled = true
     }
     
-    @objc func handleTap(recognizer: UITapGestureRecognizer) {
+    @objc private func handleTap(recognizer: UITapGestureRecognizer) {
         presentingViewController.dismiss(animated: true)
     }
 }
