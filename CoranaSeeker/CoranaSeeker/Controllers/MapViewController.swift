@@ -34,6 +34,17 @@ final class MapViewController: UIViewController {
         }
     }
     
+    private var tintColor: UIColor {
+        switch traitCollection.userInterfaceStyle {
+        case .light, .unspecified:
+            return .black
+        case .dark:
+            return .white
+        @unknown default:
+            assertionFailure("An unknown case was not handled")
+            return .black
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         adaptToTraitCollection()
@@ -47,17 +58,10 @@ final class MapViewController: UIViewController {
     }
     
     private func adaptToTraitCollection() {
-        switch traitCollection.userInterfaceStyle {
-        case .light, .unspecified:
-            navigationItem.rightBarButtonItem?.tintColor = .black
-            caseButtons.forEach({$0.tintColor = .black})
-        case .dark:
-            navigationItem.rightBarButtonItem?.tintColor = .white
-            caseButtons.forEach({$0.tintColor = .white})
-        @unknown default:
-            assertionFailure("An unknown case was not handled")
-        }
+        navigationItem.rightBarButtonItem?.tintColor = tintColor
+        caseButtons.forEach({$0.tintColor = tintColor})
     }
+
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -67,21 +71,28 @@ final class MapViewController: UIViewController {
     }
     
     private func getCurrentyInfo(with countries: [Country]) {
-        guard let location = self.locationManager.userLocation else {
-            return
-        }
-        
-        self.locationManager.getPlace(for: location) { [weak self] (placemark) in
-            guard let countryName = placemark?.country else {
-                return
-            }
+        locationManager.authorizationStatusDidChange = { status, location in
             
-            if countryName == "United States" {
-                let name = "US"
-                if let currentCountry = self?.countries.first(where: { $0.name == name }) {
-                    self?.country = currentCountry
-                    self?.addAndShowAnnotation(lattitude: location.coordinate.latitude, longitude: location.coordinate.longitude, countryName: countryName)
+            switch status {
+            case .authorizedAlways, .authorizedWhenInUse:
+                guard let location = location else {
+                    return
                 }
+                self.locationManager.getPlace(for: location) { [weak self] (placemark) in
+                    guard let countryName = placemark?.country else {
+                        return
+                    }
+                    
+                    if countryName == "United States" {
+                        let name = "US"
+                        if let currentCountry = self?.countries.first(where: { $0.name == name }) {
+                            self?.country = currentCountry
+                            self?.addAndShowAnnotation(lattitude: location.coordinate.latitude, longitude: location.coordinate.longitude, countryName: countryName)
+                        }
+                    }
+                }
+            default:
+                print("here")
             }
         }
     }
@@ -145,6 +156,7 @@ final class MapViewController: UIViewController {
         let listViewController = CountryListViewController(countries: countries, dataManager: dataManager)
         let listNavigationController = UINavigationController(rootViewController: listViewController)
         listNavigationController.transitioningDelegate = transitionDelegate
+        transitionDelegate.presentationDirection = .center
         listNavigationController.modalPresentationStyle = .custom
         listViewController.delegate = self
         present(listNavigationController, animated: true)
@@ -167,6 +179,10 @@ final class MapViewController: UIViewController {
             self.retrieveCoranaCasesStatistices(countryCode: country.slug, status: "recovered")
         }
     }
+    
+    @IBAction private func newsButtonTapped(_ sender: UIButton) {
+        print("here")
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -176,7 +192,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
         
-        annotationView.pinTintColor = traitCollection.userInterfaceStyle == .light ? .black: .white
+        annotationView.pinTintColor = tintColor
         annotationView.canShowCallout = true
         return annotationView
     }

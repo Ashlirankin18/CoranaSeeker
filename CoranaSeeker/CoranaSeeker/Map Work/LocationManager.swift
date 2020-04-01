@@ -18,6 +18,7 @@ final class LocationManager: NSObject {
     var userLocation: CLLocation? {
         return locationManager.location
     }
+    var authorizationStatusDidChange: ((CLAuthorizationStatus, CLLocation?) -> Void)?
     
     override init() {
         super.init()
@@ -31,15 +32,6 @@ extension LocationManager: CLLocationManagerDelegate {
     // MARK: - CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
-        switch status {
-        case .notDetermined         : print("notDetermined")
-        case .authorizedWhenInUse   : print("authorizedWhenInUse")
-        case .authorizedAlways      : print("authorizedAlways")
-        case .restricted            : print("restricted")
-        case .denied                : print("denied")
-        @unknown default:
-            print("An unknown case was not handled.")
-        }
+        authorizationStatusDidChange?(status,manager.location)
     }
 }

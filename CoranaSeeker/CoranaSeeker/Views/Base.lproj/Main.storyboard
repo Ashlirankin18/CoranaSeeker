@@ -19,10 +19,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5i-Mb-Eh5">
-                                <rect key="frame" x="350" y="20" width="44" height="170.5"/>
+                                <rect key="frame" x="350" y="20" width="44" height="244"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="PlV-Tb-3GL">
-                                        <rect key="frame" x="0.0" y="10" width="44" height="160.5"/>
+                                        <rect key="frame" x="0.0" y="10" width="44" height="234"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhd-kr-XAU">
                                                 <rect key="frame" x="17" y="0.0" width="27" height="27"/>
@@ -54,14 +54,28 @@
                                                     <action selector="recoveredButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UxH-gP-22f"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5y-X3-0is">
+                                                <rect key="frame" x="16.5" y="202.5" width="27.5" height="31.5"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="doc.text" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="medium" weight="regular"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="newsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h15-qA-0e7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="M4d-yg-KdH"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="PlV-Tb-3GL" firstAttribute="leading" secondItem="l5i-Mb-Eh5" secondAttribute="leading" id="1te-5C-UFW"/>
                                     <constraint firstAttribute="bottom" secondItem="PlV-Tb-3GL" secondAttribute="bottom" id="Ean-Ar-561"/>
+                                    <constraint firstAttribute="width" constant="44" id="Eoq-Mc-UnD"/>
                                     <constraint firstAttribute="trailing" secondItem="PlV-Tb-3GL" secondAttribute="trailing" id="Ov7-U0-jT7"/>
                                     <constraint firstItem="PlV-Tb-3GL" firstAttribute="top" secondItem="l5i-Mb-Eh5" secondAttribute="top" constant="10" id="Zmf-WP-ghN"/>
                                 </constraints>
@@ -73,14 +87,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="l5i-Mb-Eh5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="350" id="IPa-5q-bPz"/>
                             <constraint firstItem="DlU-Jy-ZvL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Kbq-qf-hkq"/>
                             <constraint firstItem="l5i-Mb-Eh5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="McN-M6-i6r"/>
                             <constraint firstItem="F97-Qf-Pow" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q6s-AZ-mPm"/>
                             <constraint firstAttribute="bottom" secondItem="DlU-Jy-ZvL" secondAttribute="bottom" id="fiZ-dH-RLy"/>
                             <constraint firstItem="F97-Qf-Pow" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hep-Dp-VM5"/>
                             <constraint firstItem="DlU-Jy-ZvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k1s-iC-PiB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l5i-Mb-Eh5" secondAttribute="trailing" constant="20" id="kzs-gE-3xt"/>
+                            <constraint firstAttribute="trailing" secondItem="l5i-Mb-Eh5" secondAttribute="trailing" constant="20" id="kzs-gE-3xt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DlU-Jy-ZvL" secondAttribute="trailing" id="rJM-WK-lQm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -98,6 +111,7 @@
                         <outletCollection property="caseButtons" destination="lhd-kr-XAU" collectionClass="NSMutableArray" id="NjO-pQ-lXg"/>
                         <outletCollection property="caseButtons" destination="SwF-ab-V4i" collectionClass="NSMutableArray" id="dAF-ru-4kr"/>
                         <outletCollection property="caseButtons" destination="NfN-3D-znO" collectionClass="NSMutableArray" id="0fb-S9-GI1"/>
+                        <outletCollection property="caseButtons" destination="t5y-X3-0is" collectionClass="NSMutableArray" id="NHN-yc-JTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,6 +140,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="doc.text" catalog="system" width="115" height="128"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
