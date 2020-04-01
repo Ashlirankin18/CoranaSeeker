@@ -26,6 +26,8 @@
 		2ECBA91C2431075A003543CD /* CountryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA91A2431075A003543CD /* CountryListViewController.xib */; };
 		2ECBA92124325CDD003543CD /* CaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECBA91F24325CDD003543CD /* CaseDetailViewController.swift */; };
 		2ECBA92224325CDD003543CD /* CaseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */; };
+		2EF65085243508EE00F2AEC6 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF65083243508EE00F2AEC6 /* NewsViewController.swift */; };
+		2EF65086243508EE00F2AEC6 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF65084243508EE00F2AEC6 /* NewsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		2ECBA91A2431075A003543CD /* CountryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryListViewController.xib; sourceTree = "<group>"; };
 		2ECBA91F24325CDD003543CD /* CaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailViewController.swift; sourceTree = "<group>"; };
 		2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaseDetailViewController.xib; sourceTree = "<group>"; };
+		2EF65083243508EE00F2AEC6 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		2EF65084243508EE00F2AEC6 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				2ECBA91A2431075A003543CD /* CountryListViewController.xib */,
 				2ECBA91F24325CDD003543CD /* CaseDetailViewController.swift */,
 				2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */,
+				2EF650872435096100F2AEC6 /* News */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +202,15 @@
 				2ECBA916243106CF003543CD /* CardPresentationManager.swift */,
 			);
 			path = CardPresentation;
+			sourceTree = "<group>";
+		};
+		2EF650872435096100F2AEC6 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				2EF65083243508EE00F2AEC6 /* NewsViewController.swift */,
+				2EF65084243508EE00F2AEC6 /* NewsViewController.xib */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +299,7 @@
 				2ECBA92224325CDD003543CD /* CaseDetailViewController.xib in Resources */,
 				2ECBA8E12430E5B1003543CD /* Assets.xcassets in Resources */,
 				2ECBA8DF2430E5AD003543CD /* Main.storyboard in Resources */,
+				2EF65086243508EE00F2AEC6 /* NewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +328,7 @@
 				2ECBA917243106CF003543CD /* CardPresentationManager.swift in Sources */,
 				2ECBA90D2430FA3D003543CD /* DataManager.swift in Sources */,
 				2ECBA91B2431075A003543CD /* CountryListViewController.swift in Sources */,
+				2EF65085243508EE00F2AEC6 /* NewsViewController.swift in Sources */,
 				2ECBA8DA2430E5AD003543CD /* SceneDelegate.swift in Sources */,
 				2ECBA92124325CDD003543CD /* CaseDetailViewController.swift in Sources */,
 			);
