@@ -21,14 +21,14 @@ final class CardPresentationController: UIPresentationController {
 
     private var dimmingView: UIView!
     
-    private var presentationDirection: PresentationDirection
+    private var presentationDirection: PresentationDirection?
     
     /// Creates a new instance of the `CardPresentationController`
     /// - Parameters:
     ///   - presentedViewController: The controller being presented.
     ///   - presentingViewController: The controller which presents another.
     ///   - presentationDirection: The direction that a card should be presented.
-    init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentationDirection: PresentationDirection) {
+    init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentationDirection: PresentationDirection?) {
         self.presentationDirection = presentationDirection
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         setupDimmingView()
@@ -75,7 +75,7 @@ final class CardPresentationController: UIPresentationController {
     
     override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
         
-        switch presentationDirection {
+        switch presentationDirection ?? .center {
         case .center:
             return CGSize(width: parentSize.width, height: parentSize.height * (2.0 / 3.0))
         case .bottom:
@@ -87,7 +87,7 @@ final class CardPresentationController: UIPresentationController {
         var frame: CGRect = .zero
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: (containerView?.bounds.size)!)
         
-        switch presentationDirection {
+        switch presentationDirection ?? .center {
         case .center:
             frame.origin.y = containerView!.frame.height * (1.0 / 3.0)
         case .bottom:

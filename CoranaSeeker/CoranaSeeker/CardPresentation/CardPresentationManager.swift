@@ -11,7 +11,7 @@ import UIKit
 final class CardPresentationManager: NSObject {
     
     /// The presentation direction.
-    var presentationDirection: CardPresentationController.PresentationDirection = .center
+    var presentationDirection: CardPresentationController.PresentationDirection?
 
 }
 
