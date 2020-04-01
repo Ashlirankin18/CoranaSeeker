@@ -15,6 +15,7 @@ final class MapViewController: UIViewController {
     @IBOutlet private weak var countryDisplayMapView: MKMapView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
+    @IBOutlet private var caseButtons: [UIButton]!
     private lazy var networkHelper = NetworkHelper()
     
     private lazy var dataManager = DataManager(networkHelper: networkHelper)
@@ -35,12 +36,27 @@ final class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        adaptToTraitCollection()
         configureNavigationBar()
+        countryDisplayMapView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         retrieveCountries()
+    }
+    
+    private func adaptToTraitCollection() {
+        switch traitCollection.userInterfaceStyle {
+        case .light, .unspecified:
+            navigationItem.rightBarButtonItem?.tintColor = .black
+            caseButtons.forEach({$0.tintColor = .black})
+        case .dark:
+            navigationItem.rightBarButtonItem?.tintColor = .white
+            caseButtons.forEach({$0.tintColor = .white})
+        @unknown default:
+            assertionFailure("An unknown case was not handled")
+        }
     }
     
     private func configureNavigationBar() {
@@ -95,12 +111,13 @@ final class MapViewController: UIViewController {
     }
     
     private func retrieveCountries() {
-        dataManager.retrieveCountries(urlEndPointString: "https://api.covid19api.com/countries") { (result) in
+        dataManager.retrieveCountries(urlEndPointString: "https://api.covid19api.com/countries") { [weak self] (result) in
             switch result {
             case let .failure(error):
                 print(error)
-            case let .success(countries):
-                self.countries = countries
+            case var .success(newCountries):
+                newCountries.removeFirst()
+                self?.countries = newCountries
             }
         }
     }
@@ -118,19 +135,19 @@ final class MapViewController: UIViewController {
         locationAnnotation.coordinate = CLLocationCoordinate2D(latitude: lattitude, longitude: longitude)
         locationAnnotation.isAccessibilityElement = true
         locationAnnotation.title = countryName
-        countryDisplayMapView.addAnnotation(locationAnnotation)
-        countryDisplayMapView.showAnnotations([locationAnnotation], animated: true)
         countryDisplayMapView.centerCoordinate =  CLLocationCoordinate2D(latitude: lattitude, longitude: longitude)
+        countryDisplayMapView.addAnnotation(locationAnnotation)
         countryDisplayMapView.camera.altitude = 500_000
         
     }
     
     @IBAction func listButtonTapped(_ sender: UIBarButtonItem) {
-        let listViewController = CountryListViewController(countries: countries)
-        listViewController.transitioningDelegate = transitionDelegate
-        listViewController.modalPresentationStyle = .custom
+        let listViewController = CountryListViewController(countries: countries, dataManager: dataManager)
+        let listNavigationController = UINavigationController(rootViewController: listViewController)
+        listNavigationController.transitioningDelegate = transitionDelegate
+        listNavigationController.modalPresentationStyle = .custom
         listViewController.delegate = self
-        present(listViewController, animated: true)
+        present(listNavigationController, animated: true)
     }
     
     @IBAction private func confirmButtonTapped(_ sender: UIButton) {
@@ -152,8 +169,21 @@ final class MapViewController: UIViewController {
     }
 }
 
+extension MapViewController: MKMapViewDelegate {
+    
+    // MARK : - MKMapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        
+        annotationView.pinTintColor = traitCollection.userInterfaceStyle == .light ? .black: .white
+        annotationView.canShowCallout = true
+        return annotationView
+    }
+}
+
 extension MapViewController: CountryListViewControllerDelegate {
-  
+    
     // MARK : - CountryListViewControllerDelegate
     
     func didSelectCountry(countryListViewController: CountryListViewController, country: Country) {
