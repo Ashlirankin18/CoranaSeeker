@@ -28,6 +28,8 @@
 		2ECBA92224325CDD003543CD /* CaseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */; };
 		2EF65085243508EE00F2AEC6 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF65083243508EE00F2AEC6 /* NewsViewController.swift */; };
 		2EF65086243508EE00F2AEC6 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF65084243508EE00F2AEC6 /* NewsViewController.xib */; };
+		2EF6508924350A0800F2AEC6 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6508824350A0800F2AEC6 /* ApiKeys.swift */; };
+		2EF6508B24350A1300F2AEC6 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6508A24350A1300F2AEC6 /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaseDetailViewController.xib; sourceTree = "<group>"; };
 		2EF65083243508EE00F2AEC6 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		2EF65084243508EE00F2AEC6 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
+		2EF6508824350A0800F2AEC6 /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		2EF6508A24350A1300F2AEC6 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				2ECBA8FF2430ECDD003543CD /* CountryLocation.swift */,
+				2EF6508824350A0800F2AEC6 /* ApiKeys.swift */,
+				2EF6508A24350A1300F2AEC6 /* Article.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,8 +335,10 @@
 				2ECBA90D2430FA3D003543CD /* DataManager.swift in Sources */,
 				2ECBA91B2431075A003543CD /* CountryListViewController.swift in Sources */,
 				2EF65085243508EE00F2AEC6 /* NewsViewController.swift in Sources */,
+				2EF6508B24350A1300F2AEC6 /* Article.swift in Sources */,
 				2ECBA8DA2430E5AD003543CD /* SceneDelegate.swift in Sources */,
 				2ECBA92124325CDD003543CD /* CaseDetailViewController.swift in Sources */,
+				2EF6508924350A0800F2AEC6 /* ApiKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
