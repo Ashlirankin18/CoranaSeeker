@@ -47,4 +47,20 @@ class DataManager {
               }
           }
       }
+    
+    func retrieveNewsArticles(urlEndPointString: String, completion: @escaping (Result<[Article], AppError>) -> Void) {
+        networkHelper.performDataTask(urlEndPoint: urlEndPointString) { (result) in
+            switch result {
+            case let .failure(error):
+                completion(.failure(AppError.networkError(error)))
+            case let .success(data):
+                do {
+                    let articles = try JSONDecoder().decode(ArticleResult.self, from: data).articles
+                    completion(.success(articles))
+                } catch{
+                    completion(.failure(AppError.networkError(error)))
+                }
+            }
+        }
+    }
 }

@@ -13,7 +13,7 @@ struct ArticleResult: Codable {
 }
 
 struct Article: Codable {
-    let author: String
+    let author: String?
     let title: String
     let description: String
     let url: URL

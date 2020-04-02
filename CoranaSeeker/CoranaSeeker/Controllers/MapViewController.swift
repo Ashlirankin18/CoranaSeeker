@@ -133,6 +133,18 @@ final class MapViewController: UIViewController {
         }
     }
     
+    private func retrieveNewArticles() {
+        dataManager.retrieveNewsArticles(urlEndPointString: "https://newsapi.org/v2/top-headlines?q=coronavirus&apiKey=\(APIKeys.newskey)") { [weak self] (result) in
+            switch result {
+            case let .failure(error):
+                print(error)
+            case let .success(articles):
+                let newViewController = NewsViewController(articles: articles)
+                self?.present(newViewController, animated: true)
+            }
+        }
+    }
+    
     private func getLocation(countryName: String) {
         locationManager.getLocation(forPlaceCalled: countryName) { [weak self] (location) in
             if let location = location?.coordinate {
@@ -181,7 +193,7 @@ final class MapViewController: UIViewController {
     }
     
     @IBAction private func newsButtonTapped(_ sender: UIButton) {
-        print("here")
+        retrieveNewArticles()
     }
 }
 
