@@ -30,6 +30,8 @@
 		2EF65086243508EE00F2AEC6 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF65084243508EE00F2AEC6 /* NewsViewController.xib */; };
 		2EF6508924350A0800F2AEC6 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6508824350A0800F2AEC6 /* ApiKeys.swift */; };
 		2EF6508B24350A1300F2AEC6 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6508A24350A1300F2AEC6 /* Article.swift */; };
+		2EF6509024350F1300F2AEC6 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF6508E24350F1300F2AEC6 /* NewsCollectionViewCell.swift */; };
+		2EF6509124350F1300F2AEC6 /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF6508F24350F1300F2AEC6 /* NewsCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		2EF65084243508EE00F2AEC6 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		2EF6508824350A0800F2AEC6 /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		2EF6508A24350A1300F2AEC6 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		2EF6508E24350F1300F2AEC6 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2EF6508F24350F1300F2AEC6 /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 				2ECBA9012430F5BA003543CD /* Extensions */,
 				2ECBA8FE2430ECC8003543CD /* Models */,
 				2ECBA8FD2430ECBC003543CD /* Views */,
+				2EF650872435096100F2AEC6 /* News */,
 				2ECBA8FB2430EC9F003543CD /* Controllers */,
 				2ECBA8FC2430ECB0003543CD /* SupportingFiles */,
 				2ECBA8E52430E5B1003543CD /* Info.plist */,
@@ -141,7 +146,6 @@
 				2ECBA91A2431075A003543CD /* CountryListViewController.xib */,
 				2ECBA91F24325CDD003543CD /* CaseDetailViewController.swift */,
 				2ECBA92024325CDD003543CD /* CaseDetailViewController.xib */,
-				2EF650872435096100F2AEC6 /* News */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -213,10 +217,28 @@
 		2EF650872435096100F2AEC6 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				2EF6508D24350EC500F2AEC6 /* Views */,
+				2EF6508C24350EB900F2AEC6 /* Controllers */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		2EF6508C24350EB900F2AEC6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				2EF65083243508EE00F2AEC6 /* NewsViewController.swift */,
 				2EF65084243508EE00F2AEC6 /* NewsViewController.xib */,
 			);
-			path = News;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2EF6508D24350EC500F2AEC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2EF6508E24350F1300F2AEC6 /* NewsCollectionViewCell.swift */,
+				2EF6508F24350F1300F2AEC6 /* NewsCollectionViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF6509124350F1300F2AEC6 /* NewsCollectionViewCell.xib in Resources */,
 				2ECBA8E42430E5B1003543CD /* LaunchScreen.storyboard in Resources */,
 				2ECBA91C2431075A003543CD /* CountryListViewController.xib in Resources */,
 				2ECBA92224325CDD003543CD /* CaseDetailViewController.xib in Resources */,
@@ -327,6 +350,7 @@
 				2ECBA9002430ECDD003543CD /* CountryLocation.swift in Sources */,
 				2ECBA911243106C3003543CD /* CardPresentationController.swift in Sources */,
 				2ECBA9032430F5DF003543CD /* LocationManager+Coordinate.swift in Sources */,
+				2EF6509024350F1300F2AEC6 /* NewsCollectionViewCell.swift in Sources */,
 				2ECBA9062430F63E003543CD /* LocationManager.swift in Sources */,
 				2ECBA90B2430F89E003543CD /* AppError.swift in Sources */,
 				2ECBA8FA2430EC77003543CD /* MapViewController.swift in Sources */,
